@@ -4,10 +4,10 @@
   <% @products.each do |product| %>
   <div class="col-sm-6 col-md-4">
     <div class="thumbnail">
-      <img src="<%= product.image.url %>" alt="...">
+      <%= render_product_image_path(product) %>
       <div class="caption">
-        <h3><%= product.name %></h3>
-        <p><%= product.description %></p>
+        <h3><%= render_product_name_path(product) %></h3>
+        <p><%= render_product_desc(product) %></p>
         <p><%= link_to("查看商品", product_path(product), :class => "btn btn-primary" ) %></p>
       </div>
     </div>
