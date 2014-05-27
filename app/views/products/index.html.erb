@@ -4,7 +4,7 @@
   <% @products.each do |product| %>
   <div class="col-sm-6 col-md-4">
     <div class="thumbnail">
-      <img data-src="holder.js/300x200" alt="...">
+      <img src="<%= product.image.url %>" alt="...">
       <div class="caption">
         <h3><%= product.name %></h3>
         <p><%= product.description %></p>
