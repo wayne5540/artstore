@@ -1,4 +1,5 @@
 Artstore::Application.routes.draw do
+  devise_for :users
   root "products#index"
   resources :products
   # The priority is based upon order of creation: first created -> highest priority.
