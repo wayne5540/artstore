@@ -32,7 +32,9 @@ gem "bootstrap_helper", ">= 4.2.2.1"
 gem "simple_form", "~> 3.1.0.rc1" 
 gem "will_paginate", "3.0.3"
 gem "compass-rails", "~> 1.1.2"
-gem "paperclip", "~> 4.1"
+
+gem 'carrierwave'
+
 gem "rvm-capistrano"
 
 gem 'omniauth'
