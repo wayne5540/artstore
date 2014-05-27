@@ -1,0 +1,6 @@
+<%= simple_form_for([:admin, @product], html: { class: 'form-horizontal' }) do |f|  %>
+  <%= f.input :name, :required => true %>
+  <%= f.input :description, :required => true %>
+  <%= f.input :image, :as => :file %>
+  <%= f.button :submit, "Submit", :disable_with => "Submiting..." %>
+<% end %>
