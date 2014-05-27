@@ -3,9 +3,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
-
+gem 'mysql2'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
@@ -27,6 +25,35 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+gem 'devise', '3.0.2'
+
+gem "anjlab-bootstrap-rails", ">= 3.0.0.0", :require => "bootstrap-rails"
+gem "bootstrap_helper", ">= 4.2.2.1"
+gem "simple_form", "~> 3.1.0.rc1" 
+gem "will_paginate", "3.0.3"
+gem "compass-rails", "~> 1.1.2"
+gem "paperclip", "~> 4.1"
+gem "rvm-capistrano"
+
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem "settingslogic"
+
+gem "mailgun-rails", "~> 0.1.1"
+
+# Use sqlite3 as the database for Active Record
+group :development do
+  gem "capistrano", "2.15.4"
+  gem "capistrano-ext"
+  gem 'capistrano-unicorn', :require => false
+  gem "cape"
+  gem "letter_opener"
+  
+  gem "better_errors"
+  gem "binding_of_caller"
+
+  gem "annotate"
+end
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
