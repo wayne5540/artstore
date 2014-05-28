@@ -7,7 +7,9 @@ Artstore::Application.routes.draw do
 
 
   namespace :admin do
-    resources :products
+    resources :products do
+      resources :specs
+    end
     resources :categories
   end
 

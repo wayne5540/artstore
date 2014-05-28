@@ -1,0 +1,16 @@
+<h1><%= render_product_name(@product) %><span class="badge">Category: <%= @category.name %></span></h1>
+
+<p><%= render_product_desc(@product) %></p>
+<%= render_product_image(@product) %>
+
+<h2>Specs:</h2>
+<%= link_to("新增規格", new_admin_product_spec_path(@product), :class => "btn btn-primary") %>
+<ul>
+  <% @specs.each do |spec| %>
+    <li>
+      <%= spec.name %>
+    </li>
+  <% end %>
+</ul>
+
+

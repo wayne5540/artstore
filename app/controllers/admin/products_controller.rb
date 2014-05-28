@@ -2,10 +2,15 @@ class Admin::ProductsController < ApplicationController
 
   before_action :login_required
   before_action :admin_required
-  before_action :find_product, :only => [:edit, :update, :destroy]
+  before_action :find_product, :only => [:show, :edit, :update, :destroy]
 
   def index
     @products = Product.all
+  end
+
+  def show
+    @category = @product.category
+    @specs = @product.specs
   end
 
   def new
