@@ -7,27 +7,27 @@
 <div><%= render_product_image(@product) %></div>
 
 <h2>Specs:</h2>
-<%= link_to("新增規格", new_admin_product_spec_path(@product), :class => "btn btn-primary") %>
+<%= render_new_spec_path(@product) %>
 
 <% @specs.each do |spec| %>
 <table class="table">
   <thead>
     <tr>
       <td>規格名稱</td>
-      <td><%= spec.name %></td>
+      <td><%= render_spec_name(spec) %></td>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>細節</td>
-      <td><%= spec.detail %></td>
+      <td><%= render_spec_detail(spec) %></td>
     </tr>
     <tr>
       <td>存貨</td>
-      <td><%= spec.inventory%></td>
+      <td><%= render_spec_inventory(spec) %></td>
     </tr>
     <tr>
-      <td><%= link_to("編輯規格", edit_admin_product_spec_path(@product, spec)) %></td>
+      <td><%= render_edit_spec_path(@product, spec) %></td>
       <td></td>
     </tr>
   </tbody>

@@ -4,7 +4,7 @@ module ProductsHelper
     link_to(product.name, product_path(product))
   end
   def render_product_desc(product)
-    product.description
+    simple_format(product.description)
   end
 
   def render_product_image(product)
