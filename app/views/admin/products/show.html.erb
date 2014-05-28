@@ -1,7 +1,10 @@
 <h1><%= render_product_name(@product) %><span class="badge">Category: <%= @category.name %></span></h1>
-
+<div>
+  <%= render_edit_admin_product_path(@product)%>
+  <%= render_destroy_admin_product_path(@product) %>
+</div>
 <p><%= render_product_desc(@product) %></p>
-<%= render_product_image(@product) %>
+<div><%= render_product_image(@product) %></div>
 
 <h2>Specs:</h2>
 <%= link_to("新增規格", new_admin_product_spec_path(@product), :class => "btn btn-primary") %>
