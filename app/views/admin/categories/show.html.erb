@@ -1,24 +1,3 @@
 <h1>Category: <%= @category.name %></h1>
 
-<div class="panel panel-default">
-  <div class="panel-heading">Products</div>
-  <table class="table">
-    <thead>
-      <td class="col-md-1">#</td>
-      <td class="col-md-3">Product Name</td>
-      <td class="col-md-6">Description</td>
-      <td class="col-md-2"></td>
-    </thead>
-  <% @products.each do |product| %>
-    <tr>
-      <td><%= product.id %></td>
-      <td><%= render_product_name(product) %></td>
-      <td><%= render_product_desc(product) %></td>
-      <td>
-        <%= render_edit_admin_product_path(product)%>
-        <%= render_destroy_admin_product_path(product) %>
-      </td>
-    </tr>
-  <% end %>
-  </table>  
-</div>
+<%= render :partial => "admin/common/admin_product_list", locals: {products: @products} %>
