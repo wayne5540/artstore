@@ -32,7 +32,7 @@ class Admin::ProductsController < ApplicationController
       flash[:success] = "產品已更新"
     else
       render :edit
-      flash[:success] = "產品更新失敗，請重新嘗試"
+      flash[:warning] = "產品更新失敗，請重新嘗試"
     end
   end
 

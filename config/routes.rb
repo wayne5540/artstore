@@ -1,6 +1,4 @@
 Artstore::Application.routes.draw do
-  get "products/new"
-  get "products/edit"
   devise_for :users
   root "products#index"
   resources :products
@@ -10,6 +8,7 @@ Artstore::Application.routes.draw do
 
   namespace :admin do
     resources :products
+    resources :categories
   end
 
 
