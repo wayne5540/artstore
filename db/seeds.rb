@@ -8,3 +8,4 @@
 
 Role.create(:name => "admin")
 Role.create(:name => "user")
+Category.create({:name => "category1", :description => "some desc"})

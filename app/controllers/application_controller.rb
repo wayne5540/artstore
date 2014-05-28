@@ -21,8 +21,10 @@ class ApplicationController < ActionController::Base
   end
 
   def admin_required
-    redirect_to (request.referrer || root_path)
-    flash[:danger] = "Ohoh~你沒有管理員權限唷。"
+    unless current_user && current_user.admin?
+      redirect_to (request.referrer || root_path)
+      flash[:danger] = "Ohoh~你沒有管理員權限唷。"      
+    end
   end
 
   protected
