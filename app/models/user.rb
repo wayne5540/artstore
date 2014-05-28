@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
 
-
   has_many :user_roles, :dependent => :destroy
   has_many :roles, :through => :user_roles
 
@@ -10,4 +9,23 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  after_create :set_default_role
+
+  def admin?
+    is?(:admin)
+  end
+
+
+  def is?(role)
+    roles.has_role?(role)
+  end
+
+
+
+  def set_default_role
+    role = Role.find_by(name: "user")
+    self.roles << role
+  end
+
 end
