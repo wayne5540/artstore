@@ -20,7 +20,7 @@ class Admin::ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
-      redirect_to product_path(@product)
+      redirect_to admin_product_path(@product)
       flash[:success] = "成功新增商品"
     else
       render :new
@@ -33,7 +33,7 @@ class Admin::ProductsController < ApplicationController
 
   def update
     if @product.update(product_params)
-      redirect_to product_path(@product)
+      redirect_to admin_product_path(@product)
       flash[:success] = "產品已更新"
     else
       render :edit

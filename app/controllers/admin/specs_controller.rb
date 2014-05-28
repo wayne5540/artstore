@@ -3,6 +3,7 @@ class Admin::SpecsController < ApplicationController
   before_action :login_required
   before_action :admin_required
   before_action :find_product
+  before_action :find_spec, :only => [:edit, :update, :destroy]
 
   def new
     @spec = @product.specs.new
@@ -19,6 +20,27 @@ class Admin::SpecsController < ApplicationController
     end
   end
 
+  def edit
+    @spec = @product.specs.find(params[:id])
+  end
+
+  def update
+    @spec = @product.specs.find(params[:id])
+    if @spec.update(spec_params)
+      redirect_to admin_product_path(@product)
+      flash[:success] = "規格已更新"
+    else
+      render :edit
+      flash[:warning] = "規格更新失敗，請重新嘗試"
+    end
+  end
+
+  def destroy
+    @spec.destroy
+    redirect_to admin_product_path(@product)
+    flash[:success] = "規格已刪除"
+  end
+
 
   protected
 
@@ -28,6 +50,10 @@ class Admin::SpecsController < ApplicationController
 
   def find_product
     @product = Product.find(params[:product_id])
+  end
+
+  def find_spec
+    @spec = @product.specs.find(params[:id])
   end
 
 end

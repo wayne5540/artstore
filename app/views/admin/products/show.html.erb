@@ -5,12 +5,28 @@
 
 <h2>Specs:</h2>
 <%= link_to("新增規格", new_admin_product_spec_path(@product), :class => "btn btn-primary") %>
-<ul>
-  <% @specs.each do |spec| %>
-    <li>
-      <%= spec.name %>
-    </li>
-  <% end %>
-</ul>
 
-
+<% @specs.each do |spec| %>
+<table class="table">
+  <thead>
+    <tr>
+      <td>規格名稱</td>
+      <td><%= spec.name %></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>細節</td>
+      <td><%= spec.detail %></td>
+    </tr>
+    <tr>
+      <td>存貨</td>
+      <td><%= spec.inventory%></td>
+    </tr>
+    <tr>
+      <td><%= link_to("編輯規格", edit_admin_product_spec_path(@product, spec)) %></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+<% end %>
