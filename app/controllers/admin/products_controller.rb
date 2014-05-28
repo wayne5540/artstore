@@ -2,10 +2,15 @@ class Admin::ProductsController < ApplicationController
 
   before_action :login_required
   before_action :admin_required
-  before_action :find_product, :only => [:edit, :update, :destroy]
+  before_action :find_product, :only => [:show, :edit, :update, :destroy]
 
   def index
     @products = Product.all
+  end
+
+  def show
+    @category = @product.category
+    @specs = @product.specs
   end
 
   def new
@@ -15,7 +20,7 @@ class Admin::ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
-      redirect_to product_path(@product)
+      redirect_to admin_product_path(@product)
       flash[:success] = "成功新增商品"
     else
       render :new
@@ -28,11 +33,11 @@ class Admin::ProductsController < ApplicationController
 
   def update
     if @product.update(product_params)
-      redirect_to product_path(@product)
+      redirect_to admin_product_path(@product)
       flash[:success] = "產品已更新"
     else
       render :edit
-      flash[:success] = "產品更新失敗，請重新嘗試"
+      flash[:warning] = "產品更新失敗，請重新嘗試"
     end
   end
 

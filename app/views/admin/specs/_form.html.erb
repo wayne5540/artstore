@@ -1,0 +1,6 @@
+<%= simple_form_for([:admin, @product, @spec], html: { class: 'form-horizontal' }) do |f|  %>
+  <%= f.input :name, :required => true %>
+  <%= f.input :detail, :required => true %>
+  <%= f.input :inventory %>
+  <%= f.button :submit, "Submit", :disable_with => "Submiting..." %>
+<% end %>

@@ -1,3 +1,16 @@
-<h1><%= render_product_name_path(@product) %></h1>
-<p><%= render_product_desc(@product) %></p>
-<%= render_product_image_path(@product) %>
+
+<div class="row">
+  <div class="col-md-8 thumbnail">
+    <div class="col-md-4">
+      <%= render_product_image(@product) %>
+    </div>
+    <div class="col-md-8">
+      <h1><%= render_product_name(@product) %></h1>
+      <p><%= render_product_desc(@product) %></p>
+      <p>售價：<%= render_product_price(@product) %></p>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <!--其他商品thumbnail-->
+  </div>
+</div>
