@@ -1,6 +1,7 @@
 class Admin::ProductsController < ApplicationController
 
   before_action :login_required
+  before_action :admin_required
   before_action :find_product, :only => [:edit, :update, :destroy]
 
   def index
