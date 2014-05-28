@@ -10,6 +10,9 @@ module ProductsHelper
   def render_product_image(product)
     image_tag((product.image.url||'no-image.jpeg'), :alt => product.name)
   end
+  def render_product_price(product)
+    product.price
+  end
 
 
 

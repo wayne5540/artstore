@@ -7,8 +7,14 @@
       <%= render_product_image(product) %>
       <div class="caption">
         <h3><%= render_product_name(product) %></h3>
-        <p><%= render_product_desc(product) %></p>
-        <p><%= link_to("查看商品", product_path(product), :class => "btn btn-primary" ) %></p>
+        <p>商品介紹：<%= render_product_desc(product) %></p>
+      </div>
+      <hr>
+      <div class="caption">
+        <table>
+          <td>售價：<%= render_product_price(product) %></td>
+          <td><%= link_to("查看商品", product_path(product), :class => "btn btn-primary" ) %></td>
+        </table>
       </div>
     </div>
   </div>   
