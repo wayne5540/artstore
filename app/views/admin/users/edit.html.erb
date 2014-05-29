@@ -1,0 +1,10 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= simple_form_for([:admin, @user]) do |f| %>
+      <%= f.input :name%>
+      <%= f.input :email %>
+      <%= f.association :roles, :as => :check_boxes %>
+      <%= f.button :submit, "送出修改", :disable_with => "Submiting..." %>
+    <% end %>
+  </div>
+</div>
