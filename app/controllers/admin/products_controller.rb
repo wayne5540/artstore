@@ -58,7 +58,7 @@ class Admin::ProductsController < ApplicationController
 
   def product_params
     params.require(:product).permit(:name, :description, :image, :category_id,
-                                      specs_attributes: [:id, :name, :detail, :inventory, :product_id])
+                                      specs_attributes: [:id, :name, :detail, :inventory, :product_id, :_destroy])
   end
 
 end

@@ -4,10 +4,15 @@
   <%= f.input :price %>
   <%= f.input :image, :as => :file %>
   <%= f.association :category, :required => true %>
-  <h2>Spec</h2>
-  <%= render :partial => "nested_spec_form", locals: {f: f, product: @product, new_spec: @new_spec} %>
-  <div id="test"></div>
-  <%= link_to("新增規格","#") %>
-  <div class="clearfix"></div>
+  <h3>Spec</h3>
+  <div id='specs'>
+    <%= link_to_add_association( "新增規格", f, :specs, :render_options => {:wrapper => 'horizontal_form'} ) %>
+    <%= f.simple_fields_for(:specs, :wrapper => 'horizontal_form') do |spec| %>
+      <%= render :partial => "spec_fields", locals: {f: spec} %> 
+      <%= link_to_add_association( "新增規格", f, :specs, :render_options => {:wrapper => 'horizontal_form'} ) %>
+    <% end %>
+  </div>
+  <hr>
   <%= f.button :submit, "Submit", :disable_with => "Submiting..." %>
+
 <% end %>
