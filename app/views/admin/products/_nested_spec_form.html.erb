@@ -1,0 +1,7 @@
+  <%= f.simple_fields_for(:specs, new_spec, :wrapper => 'horizontal_form') do |spec| %>
+    <%= spec.input :name %>
+    <%= spec.input :detail %>
+    <%= spec.input :inventory %>
+    <%= link_to("刪除規格", "#" ) %>
+    <hr>
+  <% end %>

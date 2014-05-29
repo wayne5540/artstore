@@ -4,5 +4,10 @@
   <%= f.input :price %>
   <%= f.input :image, :as => :file %>
   <%= f.association :category, :required => true %>
+  <h2>Spec</h2>
+  <%= render :partial => "nested_spec_form", locals: {f: f, product: @product, new_spec: @new_spec} %>
+  <div id="test"></div>
+  <%= link_to("新增規格","#") %>
+  <div class="clearfix"></div>
   <%= f.button :submit, "Submit", :disable_with => "Submiting..." %>
 <% end %>

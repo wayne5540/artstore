@@ -15,6 +15,7 @@ class Admin::ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    @new_spec = @product.specs.build
   end
 
   def create
@@ -29,6 +30,7 @@ class Admin::ProductsController < ApplicationController
   end
 
   def edit
+    @new_spec = @product.specs
   end
 
   def update
@@ -53,8 +55,10 @@ class Admin::ProductsController < ApplicationController
     @product = Product.find(params[:id])
   end
 
+
   def product_params
-    params.require(:product).permit(:name, :description, :image, :category_id)
+    params.require(:product).permit(:name, :description, :image, :category_id,
+                                      specs_attributes: [:id, :name, :detail, :inventory, :product_id])
   end
 
 end
