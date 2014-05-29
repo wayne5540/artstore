@@ -1,4 +1,5 @@
-<h1><%= render_product_name(@product) %><span class="badge">Category: <%= @category.name %></span></h1>
+<h1><%= render_product_name(@product) %><%= render_sellable_status(@product) %></h1>
+<p>Category: <%= @category.name %></p>
 <div>
   <%= render_edit_admin_product_path(@product)%>
   <%= render_destroy_admin_product_path(@product) %>
@@ -23,10 +24,6 @@
     <tr>
       <td>存貨</td>
       <td><%= render_spec_inventory(spec) %></td>
-    </tr>
-    <tr>
-      <td><%= link_to("刪除規格", admin_product_spec_path(@product, spec), :method => :delete, :confirm => "Are you sure?") %></td>
-      <td></td>
     </tr>
   </tbody>
 </table>

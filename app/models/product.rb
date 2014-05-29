@@ -11,4 +11,6 @@ class Product < ActiveRecord::Base
   mount_uploader :image, ProductImageUploader
 
 
+  scope :sellable, where( :sellable => true )
+
 end

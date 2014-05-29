@@ -13,6 +13,8 @@
     <% end %>
   </div>
   <hr>
+  <%= f.input :sellable, label: false, inline_label: '將此商品設定為上架' %>
+  <hr>
   <%= f.button :submit, "Submit", :disable_with => "Submiting..." %>
 
 <% end %>
