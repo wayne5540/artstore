@@ -4,7 +4,7 @@
   <%= render_destroy_admin_product_path(@product) %>
 </div>
 <p><%= render_product_desc(@product) %></p>
-<div><%= render_product_image(@product) %></div>
+<div><%= render_product_image(@product.image) %></div>
 
 <h2>Specs:</h2>
 <% @specs.each do |spec| %>
