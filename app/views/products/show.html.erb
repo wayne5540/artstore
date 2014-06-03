@@ -15,7 +15,7 @@
   
   <% @specs.each do |spec| %>
     <div class="col-md-4">
-      <%= spec.name %>
+      <h3><%= spec.name %></h3>
       <%= simple_form_for(@cart_item, html: { class: 'form-horizontal' }) do |f|  %>
         <%= f.input :quantity %>
         <%= f.button :submit, "加入購物車" %>
