@@ -3,7 +3,7 @@ Artstore::Application.routes.draw do
   root "products#index"
   resources :products
   resources :carts
-
+  resources :cart_items
 
 
   namespace :admin do

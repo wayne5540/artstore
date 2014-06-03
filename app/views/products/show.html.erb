@@ -1,6 +1,5 @@
 
 <div class="row">
-  <div class="col-md-8 thumbnail">
     <div class="col-md-4">
       <%= render_product_image(@product.image) %>
     </div>
@@ -8,9 +7,20 @@
       <h1><%= render_product_name(@product) %></h1>
       <p><%= render_product_desc(@product) %></p>
       <p>售價：<%= render_product_price(@product) %></p>
+
+  </div>
+  <div class="clearfix"></div>
+  <hr>
+  <h2>Specs</h2>
+  
+  <% @specs.each do |spec| %>
+    <div class="col-md-4">
+      <%= spec.name %>
+      <%= simple_form_for(@cart_item, html: { class: 'form-horizontal' }) do |f|  %>
+        <%= f.input :quantity %>
+        <%= f.button :submit, "加入購物車" %>
+      <% end %>
     </div>
-  </div>
-  <div class="col-md-4">
-    <!--其他商品thumbnail-->
-  </div>
+  <% end %>
+  
 </div>

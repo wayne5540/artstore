@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20140603021739) do
     t.integer  "cart_id"
     t.integer  "quantity",   default: 0
     t.integer  "product_id"
+    t.integer  "spec_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
