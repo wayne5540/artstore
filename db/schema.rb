@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(version: 20140603021739) do
 
   create_table "cart_items", force: true do |t|
     t.integer  "cart_id"
-    t.integer  "quantity",   default: 0
     t.integer  "product_id"
     t.integer  "spec_id"
     t.datetime "created_at"
