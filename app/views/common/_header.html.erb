@@ -4,6 +4,9 @@
       <%= link_to("ArtStore", root_path, :class => "navbar-brand") %>
     </div>
     <ul class="nav navbar-nav navbar-right">
+      <li>
+        <%= link_to(carts_path) do %>購物車<span class="badge pull-right"><%= @current_cart.cart_items_count %></span><% end %>
+      </li>
       <li><%= link_to("所有商品", products_path) %></li>
       <li><%= link_to("新增商品", new_admin_product_path) %></li>
       <li class="dropdown">
