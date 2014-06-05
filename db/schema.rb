@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 20140605075929) do
   create_table "orders", force: true do |t|
     t.integer  "total"
     t.integer  "user_id"
-    t.boolean  "paid"
+    t.boolean  "paid",       default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

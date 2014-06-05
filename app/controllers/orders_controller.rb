@@ -7,14 +7,16 @@ class OrdersController < ApplicationController
 
   def create
     @cart = current_cart
-    @order = current_user.orders.new(order_params)
-    if @order.save
+    @order1 = current_user.orders.new(order_params)
+    @order = OrderCreater.new(@order1, @cart.items)
+    if @order.process
       reset_cart
+      flash[:success] = "成功新增訂單"
+      redirect_to root_path
     else
       render :new
       flash[:warning] = "訂單新增失敗"
     end
-    redirect_to root_path
   end
 
 
