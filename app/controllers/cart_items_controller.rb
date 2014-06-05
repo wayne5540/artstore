@@ -12,6 +12,11 @@ class CartItemsController < ApplicationController
       flash[:warning] = "購物車加入失敗，可能是因為誠意不足。"
     end
   end
+  def destroy
+    @cart_item = CartItem.find(params[:id])
+    @cart_item.destroy
+    redirect_to carts_path
+  end
 
 
 

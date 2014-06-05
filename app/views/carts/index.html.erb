@@ -4,6 +4,7 @@
     <th>商品名稱</th>
     <th>商品規格</th>
     <th>商品售價</th>
+    <th></th>
   </thead>
   <tbody>
     <% @items.each do |item| %>
@@ -11,12 +12,14 @@
         <td><%= item.product.name %></td>
         <td><%= item.spec.name %></td>
         <td><%= item.product.price %></td>
+        <td><%= link_to("刪除", cart_item_path(item), :method => :delete) %></td>
       </tr>
     <% end %>
 
     <tr>
       <td></td>
       <td></td> 
+      <td></td>
       <th>總金額：<%= @sum %></th>
     </tr>
   </tbody>
