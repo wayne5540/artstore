@@ -11,7 +11,6 @@ class CartItemsController < ApplicationController
       redirect_to product_path(params[:cart_item][:product_id])
       flash[:warning] = "購物車加入失敗，可能是因為誠意不足。"
     end
-
   end
 
 
