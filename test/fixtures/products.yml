@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: products
+#
+#  id          :integer          not null, primary key
+#  name        :string(255)
+#  description :text
+#  image       :string(255)
+#  created_at  :datetime
+#  updated_at  :datetime
+#  category_id :integer
+#  price       :integer          default(0)
+#  sellable    :boolean          default(FALSE)
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
