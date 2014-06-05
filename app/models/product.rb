@@ -5,8 +5,12 @@ class Product < ActiveRecord::Base
   validates :category_id, presence: true
   validates :price, :numericality => { :greater_than_or_equal_to => 0 }
 
+  accepts_nested_attributes_for :specs
+
   # carriewave
   mount_uploader :image, ProductImageUploader
 
+
+  scope :sellable, where( :sellable => true )
 
 end

@@ -1,14 +1,13 @@
-<h1><%= render_product_name(@product) %><span class="badge">Category: <%= @category.name %></span></h1>
+<h1><%= render_product_name(@product) %><%= render_sellable_status(@product) %></h1>
+<p>Category: <%= @category.name %></p>
 <div>
   <%= render_edit_admin_product_path(@product)%>
   <%= render_destroy_admin_product_path(@product) %>
 </div>
 <p><%= render_product_desc(@product) %></p>
-<div><%= render_product_image(@product) %></div>
+<div><%= render_product_image(@product.image) %></div>
 
 <h2>Specs:</h2>
-<%= render_new_spec_path(@product) %>
-
 <% @specs.each do |spec| %>
 <table class="table">
   <thead>
@@ -25,10 +24,6 @@
     <tr>
       <td>存貨</td>
       <td><%= render_spec_inventory(spec) %></td>
-    </tr>
-    <tr>
-      <td><%= render_edit_spec_path(@product, spec) %></td>
-      <td></td>
     </tr>
   </tbody>
 </table>

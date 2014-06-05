@@ -4,5 +4,17 @@
   <%= f.input :price %>
   <%= f.input :image, :as => :file %>
   <%= f.association :category, :required => true %>
+  <h3>Spec</h3>
+  <div id='specs'>
+    <%= link_to_add_association( "新增規格", f, :specs, :render_options => {:wrapper => 'horizontal_form'} ) %>
+    <%= f.simple_fields_for(:specs, :wrapper => 'horizontal_form') do |spec| %>
+      <%= render :partial => "spec_fields", locals: {f: spec} %> 
+      <%= link_to_add_association( "新增規格", f, :specs, :render_options => {:wrapper => 'horizontal_form'} ) %>
+    <% end %>
+  </div>
+  <hr>
+  <%= f.input :sellable, label: false, inline_label: '將此商品設定為上架' %>
+  <hr>
   <%= f.button :submit, "Submit", :disable_with => "Submiting..." %>
+
 <% end %>
