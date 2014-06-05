@@ -44,7 +44,6 @@ class ApplicationController < ActionController::Base
   end
 
   def reset_cart
-    current_cart.delete
     session.delete(:cart_id)
   end
 

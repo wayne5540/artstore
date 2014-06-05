@@ -8,8 +8,12 @@ class OrdersController < ApplicationController
   def create
     @cart = current_cart
     @order = current_user.orders.new(order_params)
-    reset_cart
-    @order.save
+    if @order.save
+      reset_cart
+    else
+      render :new
+      flash[:warning] = "訂單新增失敗"
+    end
     redirect_to root_path
   end
 
