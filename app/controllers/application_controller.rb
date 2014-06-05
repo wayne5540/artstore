@@ -3,7 +3,8 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   before_filter :configure_permitted_parameters, if: :devise_controller?
-
+  before_action :current_cart
+  
   def login_required
     if current_user.blank?
       respond_to do |format|
@@ -28,6 +29,20 @@ class ApplicationController < ActionController::Base
   end
 
   protected
+
+  def current_cart
+    @current_cart ||= cart_finder
+  end
+
+  def cart_finder
+    cart = Cart.find_by(id: session[:cart_id])
+    unless cart.present?
+      cart = Cart.create
+    end
+    session[:cart_id] = cart.id
+    cart
+  end
+
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:name, :email, :password,:password_confirmation)}
   end
