@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="col-md-6 thumbnail">
+    <table class="table">
+      <thead>
+        <th>賬單資訊</th>
+        <th></th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>付款人</td>
+          <td><%= detail.billing_name %></td>
+        </tr>
+        <tr>
+          <td>聯絡地址</td>
+          <td><%= detail.billing_address %></td>
+        </tr>
+        <tr>
+          <td>聯絡電話</td>
+          <td><%= detail.billing_phone_number %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <div class="col-md-6 thumbnail">
+    <table class="table">
+      <thead>
+        <th>收件者資訊</th>
+        <th></th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>收件者名稱</td>
+          <td><%= detail.shipping_name %></td>
+        </tr>
+        <tr>
+          <td>收件地址</td>
+          <td><%= detail.shipping_address %></td>
+        </tr>
+        <tr>
+          <td>聯絡電話</td>
+          <td><%= detail.shipping_phone_number %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
