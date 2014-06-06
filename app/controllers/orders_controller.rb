@@ -62,6 +62,7 @@ class OrdersController < ApplicationController
     #mail_to_admin
     AdminMailer.order_compelete_notification(@order).deliver
     #mail_to_user(user)
+    OrderMailer.compelete_notification(@order, @order.user.email).deliver
   end
 
 end
