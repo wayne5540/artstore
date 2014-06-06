@@ -2,8 +2,12 @@ Artstore::Application.routes.draw do
   devise_for :users
   root "products#index"
   resources :products
-
-
+  resources :carts
+  resources :cart_items
+  resources :orders do
+    post "pay", on: :member
+  end
+  
 
 
   namespace :admin do
@@ -13,7 +17,6 @@ Artstore::Application.routes.draw do
     resources :products do
       resources :specs
     end
-    
   end
 
 
