@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
 
   before_action :login_required
-  before_action :find_order, only: [:show]
+  before_action :find_order, only: [:show, :pay]
   before_action :auth_user, only: [:show]
 
   def show
@@ -29,6 +29,16 @@ class OrdersController < ApplicationController
     end
   end
 
+  def pay
+    case params[:payment_type]
+    when "credit_card"
+      credit_card_process
+    else
+      redirect_to root_path  
+      flash[:warning] = "Hey, are you kidding me? 請選擇正常的付款方式"
+    end
+  end
+
 
   protected
 
@@ -43,6 +53,12 @@ class OrdersController < ApplicationController
 
   def auth_user
     @order.user == current_user
+  end
+
+  def credit_card_process
+    @order.update(:paid => true)
+    redirect_to order_path(@order)
+    flash[:success] = "付款成功，You Good!"
   end
 
 end
