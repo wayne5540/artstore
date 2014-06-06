@@ -7,8 +7,8 @@ class OrdersController < ApplicationController
 
   def create
     @cart = current_cart
-    @order1 = current_user.orders.new(order_params)
-    @order = OrderCreater.new(@order1, @cart.items)
+    @new_order = current_user.orders.new(order_params)
+    @order = OrderCreater.new(@new_order, @cart.items)
     if @order.process
       reset_cart
       flash[:success] = "成功新增訂單"
