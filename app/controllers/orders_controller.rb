@@ -59,6 +59,9 @@ class OrdersController < ApplicationController
     @order.update(:paid => true)
     redirect_to order_path(@order)
     flash[:success] = "付款成功，You Good!"
+    #mail_to_admin
+    AdminMailer.order_compelete_notification(@order).deliver
+    #mail_to_user(user)
   end
 
 end
