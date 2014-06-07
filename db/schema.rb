@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140605075929) do
+ActiveRecord::Schema.define(version: 20140606104202) do
 
   create_table "cart_items", force: true do |t|
     t.integer  "cart_id"
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 20140605075929) do
     t.boolean  "paid",       default: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "status",     default: "unpaid"
   end
 
   create_table "products", force: true do |t|

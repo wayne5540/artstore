@@ -56,7 +56,7 @@ class OrdersController < ApplicationController
   end
 
   def credit_card_process
-    @order.update(:paid => true)
+    @order.pay
     redirect_to order_path(@order)
     flash[:success] = "付款成功，You Good!"
     #mail_to_admin
