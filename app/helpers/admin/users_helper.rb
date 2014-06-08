@@ -5,9 +5,6 @@ module Admin::UsersHelper
   def render_user_email(user)
     user.email
   end
-  def render_user_created_time(user)
-    user.created_at.strftime("%d %b %Y")
-  end
   def render_edit_user_path(user)
     link_to("管理會員", edit_admin_user_path(user))
   end

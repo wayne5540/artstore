@@ -1,0 +1,24 @@
+<table class="table">
+  <thead>
+    <th>編號</th>
+    <th>建立時間</th>
+    <th>會員</th>
+    <th>狀態</th>
+    <th>付款方式</th>
+    <th>金額</th>  
+    <th></th>
+  </thead>
+  <tbody>
+    <% orders.each do |order| %>
+      <tr>
+        <td><%= order.id %></td>
+        <td><%= render_created_time(order) %></td>
+        <td><%= order.user.name %></td><!-- TODO: User path -->
+        <td><%= order.status %></td>
+        <td><%= order.payment %></td>
+        <td><%= order.total %></td>
+        <td><%= render_next_status_path(order) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
