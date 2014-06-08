@@ -17,14 +17,22 @@ class Order < ActiveRecord::Base
 
   accepts_nested_attributes_for :order_detail
 
+  scope :recent, -> { order("id DESC") }
+  scope :unpaid, -> { where(:paid => false) }
+  scope :paid, -> { where(:status => "paid") }
+  scope :shipping, -> { where(:status => "shipping") }
+  scope :shipped, -> { where(:status => "shipped") }
+  scope :returned, -> { where(:status => "returned") }
+
 
   def set_status(status)
     self.status = status
     self.save
   end
 
-  def paid
+  def set_order_paid(payment)
     self.paid = true
+    self.payment = payment
     self.save
   end
 
@@ -32,7 +40,7 @@ class Order < ActiveRecord::Base
     case self.status
     when "unpaid"
       set_status("paid")
-      paid
+      set_order_paid("by_admin")
     when "paid"
       set_status("shipping")
     when "shipping"
@@ -40,11 +48,16 @@ class Order < ActiveRecord::Base
     when "shipped"
       set_status("returned")
     when "returned"
-      #TODO can't change to other status, show some message here
+      #TODO can't change to other status, should show some message
       false
     else
       false
     end
+  end
+
+  def pay_by_credit_card
+    set_order_paid("credit_card")
+    set_status("paid")
   end
 
 end

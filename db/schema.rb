@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 20140606104202) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "status",     default: "unpaid"
+    t.string   "payment",    default: "unpaid"
   end
 
   create_table "products", force: true do |t|

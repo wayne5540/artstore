@@ -13,6 +13,9 @@ Artstore::Application.routes.draw do
   namespace :admin do
     resources :users
     resources :categories
+    resources :orders do
+      post "next_status", on: :member
+    end
 
     resources :products do
       resources :specs

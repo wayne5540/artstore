@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
 
   before_action :login_required
   before_action :find_order, only: [:show, :pay]
-  before_action :auth_user, only: [:show]
+  before_action :auth_user, only: [:show, :pay]
 
   def show
     @items = @order.items.includes(:product, :spec)
@@ -56,7 +56,7 @@ class OrdersController < ApplicationController
   end
 
   def credit_card_process
-    @order.pay
+    @order.pay_by_credit_card
     redirect_to order_path(@order)
     flash[:success] = "付款成功，You Good!"
     #mail_to_admin
