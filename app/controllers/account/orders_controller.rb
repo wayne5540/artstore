@@ -3,6 +3,10 @@ class Account::OrdersController < ApplicationController
   before_action :login_required
   before_action :find_order, only: [:show, :pay]
 
+  def index
+    @orders = current_user.orders
+  end
+
   def show
     @items = @order.items.includes(:product, :spec)
     @detail = @order.order_detail
@@ -48,10 +52,6 @@ class Account::OrdersController < ApplicationController
 
   def find_order
     @order = current_user.orders.find(params[:id])
-  end
-
-  def auth_user
-    @order.user == current_user
   end
 
   def credit_card_process
