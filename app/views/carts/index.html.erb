@@ -9,10 +9,10 @@
   <tbody>
     <% @items.each do |item| %>
       <tr>
-        <td><%= item.product.name %></td>
-        <td><%= item.spec.name %></td>
-        <td><%= item.product.price %></td>
-        <td><%= link_to("刪除", cart_item_path(item), :method => :delete) %></td>
+        <td><%= render_cart_items_product_name(item) %></td>
+        <td><%= render_cart_items_spec_name(item) %></td>
+        <td><%= render_cart_items_product_price(item) %></td>
+        <td><%= render_delete_cart_item_path(item) %></td>
       </tr>
     <% end %>
 
