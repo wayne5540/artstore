@@ -4,9 +4,9 @@ Artstore::Application.routes.draw do
   resources :products
   resources :carts
   resources :cart_items
-  resources :orders do
-    post "pay", on: :member
-  end
+  # resources :orders do
+  #   post "pay", on: :member
+  # end
   
 
 
@@ -19,6 +19,12 @@ Artstore::Application.routes.draw do
 
     resources :products do
       resources :specs
+    end
+  end
+
+  namespace :account do
+    resources :orders do
+      post "pay", on: :member
     end
   end
 
