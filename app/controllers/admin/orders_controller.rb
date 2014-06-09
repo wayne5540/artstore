@@ -13,11 +13,6 @@ class Admin::OrdersController < ApplicationController
     @returned_orders = @orders.returned
   end
 
-  # def next_status
-  #   @order.next_step
-  #   redirect_to admin_orders_path
-  # end
-
   def next_status
     case @order.status
     when "unpaid"

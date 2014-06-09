@@ -36,26 +36,6 @@ class Order < ActiveRecord::Base
     self.save
   end
 
-  # def next_step
-  #   case self.status
-  #   when "unpaid"
-  #     set_status("paid")
-  #     set_order_paid("by_admin")
-  #   when "paid"
-  #     set_status("shipping")
-  #     #OrderMailer.shipping_notification(self, self.user.email).deliver
-  #   when "shipping"
-  #     set_status("shipped")
-  #   when "shipped"
-  #     set_status("returned")
-  #   when "returned"
-  #     #TODO can't change to other status, should show some message
-  #     false
-  #   else
-  #     false
-  #   end
-  # end
-
   def pay_by_credit_card
     set_order_paid("credit_card")
     set_status("paid")
