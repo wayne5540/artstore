@@ -1,0 +1,37 @@
+<h1>訂單列表</h1>
+
+
+<ul id="order-tab"  class="nav nav-tabs">
+  <li class="active"><a href="#unpaid">未付款</a></li>
+  <li><a href="#paid">已付款</a></li>
+  <li><a href="#shipping">出貨中</a></li>
+  <li><a href="#shipped">已出貨</a></li>
+  <li><a href="#returned">退貨</a></li>
+</ul>
+<div class="tab-content">
+  <div class="tab-pane fade active in" id="unpaid">
+    <%= render "order_detail", :orders => @unpaid_orders %>
+  </div>
+  <div class="tab-pane fade" id="paid">
+    <%= render "order_detail", :orders => @paid_orders %>
+  </div>
+  <div class="tab-pane fade" id="shipping">
+    <%= render "order_detail", :orders => @shipping_orders %>
+  </div>
+  <div class="tab-pane fade" id="shipped">
+    <%= render "order_detail", :orders => @shipped_orders %>
+  </div>
+  <div class="tab-pane fade" id="returned">
+    <%= render "order_detail", :orders => @returned_orders %>
+  </div>
+</div>
+
+
+<%= content_for :javascripts do %>
+<script type="text/javascript">
+$('#order-tab a').click(function (e) {
+  e.preventDefault();
+  $(this).tab('show');
+})
+</script>
+<% end %>

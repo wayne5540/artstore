@@ -2,18 +2,24 @@ Artstore::Application.routes.draw do
   devise_for :users
   root "products#index"
   resources :products
-
-
+  resources :carts
+  resources :cart_items
+  resources :orders do
+    post "pay", on: :member
+  end
+  
 
 
   namespace :admin do
     resources :users
     resources :categories
+    resources :orders do
+      post "next_status", on: :member
+    end
 
     resources :products do
       resources :specs
     end
-    
   end
 
 

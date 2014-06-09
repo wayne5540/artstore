@@ -1,0 +1,17 @@
+<h1>訂單資訊</h1>
+
+<%= simple_form_for(@order, html: { class: 'form-horizontal' }) do |f|  %>
+
+  <%= f.simple_fields_for(:order_detail, :wrapper => 'horizontal_form') do |detail| %>
+    <%= detail.input :billing_name, :required => true %>
+    <%= detail.input :billing_phone_number, :required => true %>
+    <%= detail.input :billing_address, :required => true %>
+    <hr>
+    <%= detail.input :shipping_name, :required => true %>
+    <%= detail.input :shipping_phone_number, :required => true %>
+    <%= detail.input :shipping_address, :required => true %>
+  <% end %>
+
+  <%= f.button :submit, "Submit", :disable_with => "Submiting..." %>
+
+<% end %>

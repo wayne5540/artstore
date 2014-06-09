@@ -1,0 +1,19 @@
+defaults: &defaults
+  app_name: "artstore"
+  domain: "artstore.dev"
+  admin_emails:
+    - "wayne@rocodev.com"
+    - "wayne.5540@gmail.com"
+  email_sender: "staff@artstore.dev"
+  mailgun:
+    api_key: key-4xc66uo1t10ezi738d20fhuanb5m1gk4
+    api_host: artstore.dev.dev
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
