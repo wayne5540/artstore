@@ -4,7 +4,10 @@ class Account::OrdersController < ApplicationController
   before_action :find_order, only: [:show, :pay]
 
   def index
-    @orders = current_user.orders
+    @orders = current_user.orders.includes(:items).recent
+    @unpaid_orders = @orders.unpaid
+    @in_process_orders = @orders.in_process
+    @closed_orders = @orders.closed
   end
 
   def show

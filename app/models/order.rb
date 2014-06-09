@@ -23,6 +23,8 @@ class Order < ActiveRecord::Base
   scope :shipping, -> { where(:status => "shipping") }
   scope :shipped, -> { where(:status => "shipped") }
   scope :returned, -> { where(:status => "returned") }
+  scope :in_process, -> { where(:status => ["paid", "shipping"]) }
+  scope :closed, -> { where(:status => ["shipped", "returned"]) }
 
 
   def set_status(status)

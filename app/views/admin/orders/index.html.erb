@@ -1,7 +1,7 @@
 <h1>訂單列表</h1>
 
 
-<ul id="order-tab"  class="nav nav-tabs">
+<ul id="admin-order-tab"  class="nav nav-tabs">
   <li class="active"><a href="#unpaid">未付款</a></li>
   <li><a href="#paid">已付款</a></li>
   <li><a href="#shipping">出貨中</a></li>
@@ -29,7 +29,7 @@
 
 <%= content_for :javascripts do %>
 <script type="text/javascript">
-$('#order-tab a').click(function (e) {
+$('#admin-order-tab a').click(function (e) {
   e.preventDefault();
   $(this).tab('show');
 })
