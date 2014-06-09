@@ -4,6 +4,9 @@
       <%= link_to("ArtStore", root_path, :class => "navbar-brand") %>
     </div>
     <ul class="nav navbar-nav navbar-right">
+      <li>
+        <%= link_to(carts_path) do %><span class="glyphicon glyphicon-shopping-cart"></span> 購物車<span class="badge pull-right"><%= @current_cart.cart_items_count %></span><% end %>
+      </li>
       <li><%= link_to("所有商品", products_path) %></li>
       <li><%= link_to("新增商品", new_admin_product_path) %></li>
       <li class="dropdown">
@@ -11,12 +14,15 @@
         <% if current_user %>
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.name %><b class="caret"></b></a>
           <ul class="dropdown-menu">
+            <li><%= link_to("Orders管理", account_orders_path ) %></li>
+            <li class="divider"></li>
             <li><%= link_to("登出", destroy_user_session_path, :method => :delete ) %></li>
             <li class="divider"></li>
             <li>暫放的連結</li>
             <li><%= link_to("Admin-Products", admin_products_path ) %></li>
             <li><%= link_to("Admin-Categories", admin_categories_path ) %></li>
             <li><%= link_to("Admin-Users", admin_users_path ) %></li>
+            <li><%= link_to("Admin-Orders", admin_orders_path ) %></li>
           </ul>
         
         <% else %>
