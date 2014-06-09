@@ -8,16 +8,16 @@
     <tbody>
       <% items.each do |item| %>
         <tr>
-          <td><%= item.product.name %></td>
-          <td><%= item.spec.name %></td>
-          <td><%= item.product.price %></td>
+          <td><%= render_order_item_product_name(item) %></td>
+          <td><%= render_order_item_spec_name(item) %></td>
+          <td><%= render_order_item_product_price(item) %></td>
         </tr>
       <% end %>
     </tbody>
     <tfoot>
         <td></td>
         <td></td> 
-        <th>總金額：<%= order.total %></th>
+        <th>總金額：<%= render_order_total(order) %></th>
     </tfoot>
   </table>
 </div>

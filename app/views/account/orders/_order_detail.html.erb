@@ -8,15 +8,15 @@
       <tbody>
         <tr>
           <td>付款人</td>
-          <td><%= detail.billing_name %></td>
+          <td><%= render_order_detail_billing_name(order) %></td>
         </tr>
         <tr>
           <td>聯絡地址</td>
-          <td><%= detail.billing_address %></td>
+          <td><%= render_order_detail_billing_address(order) %></td>
         </tr>
         <tr>
           <td>聯絡電話</td>
-          <td><%= detail.billing_phone_number %></td>
+          <td><%= render_order_detail_billing_phone_number(order) %></td>
         </tr>
       </tbody>
     </table>
@@ -32,15 +32,15 @@
       <tbody>
         <tr>
           <td>收件者名稱</td>
-          <td><%= detail.shipping_name %></td>
+          <td><%= render_order_detail_shipping_name(order) %></td>
         </tr>
         <tr>
           <td>收件地址</td>
-          <td><%= detail.shipping_address %></td>
+          <td><%= render_order_detail_shipping_address(order) %></td>
         </tr>
         <tr>
           <td>聯絡電話</td>
-          <td><%= detail.shipping_phone_number %></td>
+          <td><%= render_order_detail_shipping_phone_number(order) %></td>
         </tr>
       </tbody>
     </table>

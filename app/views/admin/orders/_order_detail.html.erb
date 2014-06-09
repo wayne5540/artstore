@@ -13,10 +13,10 @@
       <tr>
         <td><%= order.id %></td>
         <td><%= render_created_time(order) %></td>
-        <td><%= order.user.name %></td><!-- TODO: User path -->
-        <td><%= order.status %></td>
-        <td><%= order.payment %></td>
-        <td><%= order.total %></td>
+        <td><%= render_order_user_name(order) %></td><!-- TODO: User path -->
+        <td><%= render_order_status(order) %></td>
+        <td><%= render_order_payment(order) %></td>
+        <td><%= render_order_total(order) %></td>
         <td><%= render_next_status_path(order) %></td>
       </tr>
     <% end %>

@@ -4,10 +4,6 @@ Artstore::Application.routes.draw do
   resources :products
   resources :carts
   resources :cart_items
-  # resources :orders do
-  #   post "pay", on: :member
-  # end
-  
 
 
   namespace :admin do
