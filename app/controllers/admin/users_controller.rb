@@ -1,7 +1,4 @@
-class Admin::UsersController < ApplicationController
-
-  before_action :login_required
-  before_action :admin_required
+class Admin::UsersController < AdminController
 
   def index
     @users = User.all

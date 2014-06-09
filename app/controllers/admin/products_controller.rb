@@ -1,7 +1,5 @@
-class Admin::ProductsController < ApplicationController
+class Admin::ProductsController < AdminController
 
-  before_action :login_required
-  before_action :admin_required
   before_action :find_product, :only => [:show, :edit, :update, :destroy]
 
   def index

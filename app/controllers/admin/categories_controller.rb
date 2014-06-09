@@ -1,7 +1,5 @@
-class Admin::CategoriesController < ApplicationController
+class Admin::CategoriesController < AdminController
 
-  before_action :login_required
-  before_action :admin_required
   before_action :find_category, :only => [:show, :edit, :update, :destroy]
 
 

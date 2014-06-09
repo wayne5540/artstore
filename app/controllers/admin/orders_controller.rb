@@ -1,7 +1,5 @@
-class Admin::OrdersController < ApplicationController
+class Admin::OrdersController < AdminController
 
-  before_action :login_required
-  before_action :admin_required
   before_action :find_order, :only => [:next_status]
 
   def index

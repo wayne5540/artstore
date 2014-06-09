@@ -16,6 +16,7 @@ Artstore::Application.routes.draw do
     resources :products do
       resources :specs
     end
+    root "orders#index"
   end
 
   namespace :account do
