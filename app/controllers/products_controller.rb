@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.friendly.find(params[:id])
+    @product = Product.find(params[:id])
     @specs = @product.specs
     @cart_item = CartItem.new
     unless @product.sellable

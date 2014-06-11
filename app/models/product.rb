@@ -15,8 +15,8 @@
 
 class Product < ActiveRecord::Base
   extend FriendlyId
-  friendly_id :name, use: :slugged
-  
+  friendly_id :slug_candidates, use: :slugged
+
   has_many :specs, :dependent => :destroy
   belongs_to :category
   validates :name, presence: true
@@ -29,6 +29,18 @@ class Product < ActiveRecord::Base
   mount_uploader :image, ProductImageUploader
 
 
-  scope :sellable, where( :sellable => true )
+  scope :sellable, -> { where( :sellable => true ) }
+
+  # overide friendly method to show chinese
+  def normalize_friendly_id(input)
+    input.to_s.to_slug.normalize.to_s
+  end
+
+  # set slug name when slug is not unique
+  def slug_candidates
+    [
+      [:name, :price]
+    ]
+  end
 
 end
