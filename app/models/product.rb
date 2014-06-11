@@ -14,6 +14,9 @@
 #
 
 class Product < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+  
   has_many :specs, :dependent => :destroy
   belongs_to :category
   validates :name, presence: true
