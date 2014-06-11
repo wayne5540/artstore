@@ -12,6 +12,9 @@ class ProductsController < ApplicationController
       redirect_to (request.referrer || root_path)
       flash[:warning] = "抱歉，您找的商品不存在"
     end
+
+    set_page_title @product.name
+    set_page_description @product.description.truncate(100)
   end
 
 end
