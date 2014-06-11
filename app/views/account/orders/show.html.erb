@@ -1,0 +1,6 @@
+<%= render_order_status_field(@order) %>
+<h2>訂單資訊</h2>
+<%= render :partial => "items_list", locals: { items: @items, order: @order } %>
+
+<h2>聯絡資訊</h2>
+<%= render "order_detail", order: @order %>

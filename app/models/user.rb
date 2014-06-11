@@ -22,6 +22,7 @@ class User < ActiveRecord::Base
 
   has_many :user_roles, :dependent => :destroy
   has_many :roles, :through => :user_roles
+  has_many :orders
 
 
   # Include default devise modules. Others available are:

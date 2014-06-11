@@ -1,7 +1,5 @@
-class Admin::ProductsController < ApplicationController
+class Admin::ProductsController < AdminController
 
-  before_action :login_required
-  before_action :admin_required
   before_action :find_product, :only => [:show, :edit, :update, :destroy]
 
   def index
@@ -57,7 +55,7 @@ class Admin::ProductsController < ApplicationController
 
 
   def product_params
-    params.require(:product).permit(:name, :description, :image, :category_id, :sellable,
+    params.require(:product).permit(:name, :description, :image, :category_id, :sellable, :price,
                                       specs_attributes: [:id, :name, :detail, :inventory, :product_id, :_destroy])
   end
 
