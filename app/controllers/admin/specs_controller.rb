@@ -1,7 +1,5 @@
-class Admin::SpecsController < ApplicationController
+class Admin::SpecsController < AdminController
 
-  before_action :login_required
-  before_action :admin_required
   before_action :find_product
   before_action :find_spec, :only => [:edit, :update, :destroy]
 

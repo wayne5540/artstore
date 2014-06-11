@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Artstore</title>
+  <%= render_page_title_tag %>
+  <%= render_page_description_meta_tag %>
+  <%= render_page_keywords_meta_tag %>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -14,6 +16,6 @@
     
   </div>
 
-
+  <%= yield :javascripts %>
 </body>
 </html>
