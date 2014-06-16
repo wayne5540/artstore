@@ -1,0 +1,32 @@
+<h1>購物清單</h1>
+<table class="table">
+  <thead>
+    <th>商品名稱</th>
+    <th>商品規格</th>
+    <th>商品售價</th>
+    <th></th>
+  </thead>
+  <tbody>
+    <% @items.each do |item| %>
+      <tr>
+        <td><%= render_cart_items_product_name(item) %></td>
+        <td><%= render_cart_items_spec_name(item) %></td>
+        <td><%= render_cart_items_product_price(item) %></td>
+        <td><%= render_delete_cart_item_path(item) %></td>
+      </tr>
+    <% end %>
+
+    <tr>
+      <td></td>
+      <td></td> 
+      <td></td>
+      <th>總金額：<%= @sum %></th>
+    </tr>
+  </tbody>
+</table>
+<%= link_to("繼續購物", root_path, :class => "btn btn btn-default") %>
+
+<% if @cart.items.present? %>
+  <%= link_to("結賬囉，小朋友拿來", new_account_order_path, :class => "btn btn btn-success") %>
+<% end %>
+

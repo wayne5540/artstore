@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Artstore</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <%= render "common/header" %>
+  <hr>
+    <%= link_to("Admin管理後台", admin_root_path) %>
+  <hr>
+  <div class="container">
+    <%= render "common/flash" %>
+    <div class="row">
+      <div class="col-md-9">
+        <%= yield %>
+      </div>
+      <div class="col-md-3">
+        <%= render "admin/common/menubar" %>
+      </div>
+    </div>
+    
+  </div>
+
+  <%= yield :javascripts %>
+</body>
+</html>

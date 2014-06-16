@@ -45,6 +45,13 @@ gem "settingslogic"
 
 gem "mailgun-rails", "~> 0.1.1"
 
+
+gem 'friendly_id', '~> 5.0.0'
+gem "babosa"
+gem 'seo_helper', '~> 1.0'
+gem 'sitemap_generator'
+
+
 # Use sqlite3 as the database for Active Record
 group :development do
   gem "capistrano", "2.15.4"
